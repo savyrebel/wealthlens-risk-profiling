@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0f14" />
+  <title>WealthLens — Client Risk Profiling</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="WealthLens home">
+        <span class="brand-mark">W</span>
+        <span><strong>WEALTH</strong><em>LENS</em></span>
+      </a>
+      <div class="topbar-note">Digital Client Risk Profiling · Academic Prototype</div>
+    </header>
+
+    <main id="app">
+      <section id="landing" class="screen active">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">WEALTH MANAGEMENT</span>
+            <h1>Understand your<br><span>investment risk.</span></h1>
+            <p class="hero-sub">A structured digital assessment of your financial capacity, risk tolerance, risk perception and goal requirements.</p>
+            <div class="hero-actions">
+              <button class="btn btn-primary" id="startBtn">Begin assessment <span>→</span></button>
+              <button class="btn btn-ghost" id="demoBtn">View demo results</button>
+            </div>
+            <div class="trust-row">
+              <span>10 sections</span><i></i><span>60+ prompts</span><i></i><span>Interactive analysis</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="orb orb-a"></div><div class="orb orb-b"></div>
+            <div class="risk-card">
+              <div class="risk-card-top"><span>SUSTAINABLE RISK</span><span class="mini-dot"></span></div>
+              <div class="score-ring" style="--score:68"><div><strong>68</strong><small>/100</small></div></div>
+              <h3>Balanced</h3>
+              <p>Illustrative result</p>
+              <div class="metric-row"><span>Capacity</span><b>72</b></div>
+              <div class="bar"><span style="width:72%"></span></div>
+              <div class="metric-row"><span>Tolerance</span><b>68</b></div>
+              <div class="bar"><span style="width:68%"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <article><span>01</span><h3>Financial Capacity</h3><p>Liquidity, income stability, debt and goal resilience.</p></article>
+          <article><span>02</span><h3>Risk Tolerance</h3><p>Your willingness to live through market volatility.</p></article>
+          <article><span>03</span><h3>Risk Perception</h3><p>How you perceive the risk of different investments.</p></article>
+          <article><span>04</span><h3>Goal Feasibility</h3><p>Whether your financial goals align with the return required.</p></article>
+        </div>
+      </section>
+
+      <section id="questionnaire" class="screen">
+        <div class="assessment-head">
+          <div>
+            <span class="eyebrow" id="sectionEyebrow">SECTION A</span>
+            <h2 id="sectionTitle">Client & Family Profile</h2>
+            <p id="sectionDescription"></p>
+          </div>
+          <div class="progress-wrap"><div class="progress-label"><span id="progressText">0%</span><span id="progressCount">0 / 0</span></div><div class="progress"><span id="progressBar"></span></div></div>
+        </div>
+        <div class="assessment-layout">
+          <aside class="section-nav" id="sectionNav"></aside>
+          <div class="question-area">
+            <form id="questionForm"></form>
+            <div class="form-actions">
+              <button class="btn btn-ghost" id="prevBtn" type="button">← Back</button>
+              <button class="btn btn-primary" id="nextBtn" type="button">Continue →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="results" class="screen">
+        <div class="results-head">
+          <div><span class="eyebrow">ASSESSMENT COMPLETE</span><h2>Your Risk Profile</h2><p id="resultGreeting">Your assessment has been analysed across the four core dimensions.</p></div>
+          <button class="btn btn-ghost" id="restartBtn">Start again</button>
+        </div>
+        <div class="results-hero">
+          <div class="profile-block"><span class="label">SUSTAINABLE RISK PROFILE</span><h1 id="profileName">Balanced</h1><p id="profileExplanation"></p><div class="score-line"><strong id="sustainableScore">68</strong><span>/ 100</span></div></div>
+          <div class="score-ring large" id="resultRing"><div><strong id="ringScore">68</strong><small>/100</small></div></div>
+        </div>
+        <div class="dimension-grid">
+          <article class="dimension"><div class="dim-head"><span>RISK CAPACITY</span><b id="capacityScore">72</b></div><div class="bar big"><span id="capacityBar"></span></div><p>Your financial ability to absorb losses without jeopardising essential obligations.</p></article>
+          <article class="dimension"><div class="dim-head"><span>RISK TOLERANCE</span><b id="toleranceScore">68</b></div><div class="bar big"><span id="toleranceBar"></span></div><p>Your emotional willingness to accept fluctuations and temporary losses.</p></article>
+          <article class="dimension"><div class="dim-head"><span>RISK PERCEPTION</span><b id="perceptionScore">—</b></div><div class="bar big"><span id="perceptionBar"></span></div><p>Diagnostic of how your perceived investment risks compare with the assessment framework.</p></article>
+          <article class="dimension"><div class="dim-head"><span>RISK REQUIRED</span><b id="requiredScore">—</b></div><div class="required-pill" id="requiredPill">Goal feasibility</div><p id="requiredText">Calculated from your stated goal, corpus, contribution and horizon where sufficient data is available.</p></article>
+        </div>
+        <div class="analysis-grid">
+          <article class="panel"><div class="panel-title"><span>CAPACITY × TOLERANCE</span><span id="alignmentBadge" class="badge">Strong alignment</span></div><div class="compare"><div><span>Capacity</span><strong id="compareCapacity">72</strong><div class="bar"><span id="compareCapacityBar"></span></div></div><div><span>Tolerance</span><strong id="compareTolerance">68</strong><div class="bar"><span id="compareToleranceBar"></span></div></div></div><p id="alignmentText"></p></article>
+          <article class="panel"><div class="panel-title"><span>GOAL ANALYSIS</span></div><div class="goal-stats"><div><small>Primary goal</small><strong id="goalName">—</strong></div><div><small>Target year</small><strong id="goalYear">—</strong></div><div><small>Current corpus</small><strong id="goalCorpus">—</strong></div><div><small>Monthly contribution</small><strong id="goalContribution">—</strong></div><div><small>Required return</small><strong id="goalReturn">—</strong></div></div></article>
+        </div>
+        <div class="insights-grid"><article class="panel"><div class="panel-title"><span>ASSESSMENT FLAGS</span></div><div id="flags" class="flags"></div></article><article class="panel"><div class="panel-title"><span>PROFILE RECONCILIATION</span></div><div id="reconciliation"></div></article></div>
+        <div class="method-panel"><details><summary>How we calculated this</summary><div class="method-content"><div><b>1. Risk Capacity</b><p>Objective financial characteristics are used to estimate your ability to withstand losses.</p></div><div><b>2. Risk Tolerance</b><p>Your responses to the willingness and loss-reaction questions form the tolerance assessment.</p></div><div><b>3. Risk Perception</b><p>Product-level risk ratings are treated as a diagnostic, not as a direct reason to increase risk.</p></div><div><b>4. Risk Required</b><p>Your stated goal information is used to estimate the return required where enough numerical data is available.</p></div><div><b>5. Reconciliation</b><p>The final profile is constrained by financial capacity. A high willingness to take risk cannot by itself override inadequate financial capacity.</p></div></div></details></div>
+        <div class="academic-note"><strong>Academic prototype</strong><span>This assessment is for educational/project use. It is not a SEBI-approved or psychometrically validated risk-profiling instrument and does not constitute investment advice.</span></div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
